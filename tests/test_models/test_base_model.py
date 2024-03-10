@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Unit tests for BaseModel class"""
 import json
 import os
 import time
@@ -8,7 +10,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-class Testbase_mdel(unittest.TestCase):
+class Testbase_model(unittest.TestCase):
     """Test cases for the `Base` class.
     """
 
