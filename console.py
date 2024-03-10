@@ -36,6 +36,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, command):
         """Handle the End Of File by clicking on ctr + d"""
+        print()
         return True
 
     def emptyline(self):
