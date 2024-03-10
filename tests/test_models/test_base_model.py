@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """Unit tests for BaseModel class"""
+from models import storage
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from datetime import datetime
 import json
 import os
+import re
 import time
 import unittest
 import uuid
-from datetime import datetime
-from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
 
 
 class Testbase_model(unittest.TestCase):
