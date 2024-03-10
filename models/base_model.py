@@ -2,13 +2,12 @@
 """
 BaseModel file"""
 from datetime import datetime
-import models 
+import models
 from uuid import uuid4
 
 
 class BaseModel:
     """BaseModel Class"""
-    
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel.
 
