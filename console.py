@@ -30,10 +30,18 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
+    def do_quit(self, line):
+        """ This method represents quit Commande"""
+        return True
+
     def do_EOF(self, command):
         """Handle the End Of File by clicking on ctr + d"""
         print()
         return True
+
+    def emptyline(self):
+        """This module represents empty line """
+        pass
 
     def do_create(self, command):
         """Create a new instance of BaseModel,
