@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ BaseModel"""
-
-from datetime import datetime
 import models
+import datetime
 from uuid import uuid4
 
 
@@ -18,8 +17,8 @@ class BaseModel:
         """
         datetimeform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.datetime.now()
+        self.updated_at = self.created_at
         if len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "created_at" or k == "updated_at":
@@ -37,7 +36,7 @@ class BaseModel:
     def save(self):
         """ updates the public instance attribute updated_at with
         the current time"""
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.datetime.now()
         models.storage.save()
 
     def to_dict(self):
