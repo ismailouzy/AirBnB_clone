@@ -1,7 +1,7 @@
 
 # AirBnB Clone Project - README
 
-![App Screenshot](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T133127Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=7452c3cbb5b78b31270d5f00f23ab07f015334eb81190e655cb10d26db1b89ed)
+![App Screenshot](https://camo.githubusercontent.com/0abfd1a3534470d279dd6eaca57e0b4b81e23fb77afd81483d470c2f63ab51d3/68747470733a2f2f692e696d6775722e636f6d2f4d5171334142632e706e67)
 
 The AirBnB Clone project is about creating a fantastic web application. At this moment, we're building the first part - a unique tool known as a command interpreter. This tool helps us manage things like users, places, and more in our AirBnB system. Think of it as the captain steering the ship, guiding and instructing the team towards a successful voyage
 
