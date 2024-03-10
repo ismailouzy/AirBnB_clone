@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" the interpreter of AirBnb console tha inherratce from cmd
+and handle commands"""
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -8,8 +10,6 @@ from models.city import City
 from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
-""" the interpreter of AirBnb console tha inherratce from cmd
-and handle commands"""
 
 
 class HBNBCommand(cmd.Cmd):
@@ -30,13 +30,12 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
-    def do_quit(self, line):
-        """ This method represents quit Commande"""
-        return True
+    def help_quit(self):
+        """Help for quit command"""
+        print("Quit command to exit the program")
 
     def do_EOF(self, command):
         """Handle the End Of File by clicking on ctr + d"""
-        print()
         return True
 
     def emptyline(self):
