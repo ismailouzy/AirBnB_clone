@@ -67,6 +67,21 @@ class Testbase_model(unittest.TestCase):
         self.assertEqual(b.title, b_dict['title'])
         self.assertEqual(b.created_at.isoformat(), b_dict['created_at'])
 
+    def setUp(self):
+        """Sets up test methods."""
+        pass
+
+    def tearDown(self):
+        """Tears down test methods."""
+        self.resetStorage()
+        pass
+
+    def resetStorage(self):
+        """Resets FileStorage data."""
+        FileStorage._FileStorage__objects = {}
+        if os.path.isfile(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
+
 
 if __name__ == "__main__":
     unittest.main()
