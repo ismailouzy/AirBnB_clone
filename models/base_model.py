@@ -1,32 +1,36 @@
 #!/usr/bin/python3
-""" BaseModel"""
-import models
-import datetime
-from uuid import uuid4
+"""
+BaseModel
+
+"""
+from datetime import datetime
+import uuid
 
 
 class BaseModel:
-    """BaseModel Class"""
-
+    """
+    a class BaseModel that defines
+    all common attributes/methods for other classes
+    """
     def __init__(self, *args, **kwargs):
-        """Initialize a new BaseModel.
-
-        Args:
-            *args
-            **kwargs : Key/value pairs of attributes in dictionary.
         """
-        datetimeform = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = self.created_at
-        if len(kwargs) != 0:
+        Initializes a new instances of the BaseModel
+        Args:
+            @id:
+            @created_at:
+            @updated_at:
+        """
+        if kwargs:
             for k, v in kwargs.items():
+                if k == __class__:
+                    continue
                 if k == "created_at" or k == "updated_at":
-                    self.__dict__[k] = datetime.strptime(v, datetimeform)
-                else:
-                    self.__dict__[k] = v
+                    v = datetime.fromisoformat(v)
+                setattr(self, k, v)
         else:
-            models.storage.new(self)
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.utcnow()
+            self.updated_at = datetime.utcnow()
 
     def __str__(self):
         """Returns a string representation of the BaseModel
@@ -36,14 +40,14 @@ class BaseModel:
     def save(self):
         """ updates the public instance attribute updated_at with
         the current time"""
-        self.updated_at = datetime.datetime.now()
-        models.storage.save()
+        self.updated_at = datetime.utcnow()
 
     def to_dict(self):
         """a dictionary containing all keys/values
         of __dict__ of the instance"""
         dic_inst = self.__dict__.copy()
+        dic_inst["__class__"] = self.__class__.__name__
         dic_inst["created_at"] = self.created_at.isoformat()
         dic_inst["updated_at"] = self.updated_at.isoformat()
-        dic_inst["__class__"] = self.__class__.__name__
+
         return dic_inst
