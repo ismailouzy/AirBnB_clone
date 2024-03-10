@@ -36,7 +36,7 @@ class TestPlace(unittest.TestCase):
         place.city_id = "1"
         place.user_id = "2"
         place.name = "Cozy Apartment"
-        place.description = "A cozy apartment in the heart of the city"
+        place.description = "A cozy apartment in the city"
         place.number_rooms = 2
         place.number_bathrooms = 1
         place.max_guest = 4
@@ -48,7 +48,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.city_id, "1")
         self.assertEqual(place.user_id, "2")
         self.assertEqual(place.name, "Cozy Apartment")
-        self.assertEqual(place.description, "A cozy apartment in the heart of the city")
+        self.assertEqual(place.description, "A cozy apartment in the city")
         self.assertEqual(place.number_rooms, 2)
         self.assertEqual(place.number_bathrooms, 1)
         self.assertEqual(place.max_guest, 4)
@@ -61,10 +61,12 @@ class TestPlace(unittest.TestCase):
         """
         Test conversion to dictionary.
         """
-        place = Place(city_id="1", user_id="2", name="Cozy Apartment",
-                      description="A cozy apartment in the heart of the city",
+        place = Place(city_id="1", user_id="2",
+                      name="Cozy Apartment",
+                      description="A cozy apartment in the city",
                       number_rooms=2, number_bathrooms=1, max_guest=4,
-                      price_by_night=100, latitude=37.7749, longitude=-122.4194,
+                      price_by_night=100, latitude=37.7749,
+                      longitude=-122.4194,
                       amenity_ids=["1", "2", "3"])
 
         place_dict = place.to_dict()
@@ -74,7 +76,7 @@ class TestPlace(unittest.TestCase):
             "city_id": "1",
             "user_id": "2",
             "name": "Cozy Apartment",
-            "description": "A cozy apartment in the heart of the city",
+            "description": "A cozy apartment in the city",
             "number_rooms": 2,
             "number_bathrooms": 1,
             "max_guest": 4,
@@ -94,9 +96,10 @@ class TestPlace(unittest.TestCase):
         Test string representation.
         """
         place = Place(city_id="1", user_id="2", name="Cozy Apartment",
-                      description="A cozy apartment in the heart of the city",
+                      description="A cozy apartment in the city",
                       number_rooms=2, number_bathrooms=1, max_guest=4,
-                      price_by_night=100, latitude=37.7749, longitude=-122.4194,
+                      price_by_night=100, latitude=37.7749,
+                      longitude=-122.4194,
                       amenity_ids=["1", "2", "3"])
 
         expected_str = "[Place] ({}) {}".format(place.id, place.__dict__)
